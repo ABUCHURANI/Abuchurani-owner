@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form - Patient Scheduling System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+
+        .header {
+            background-color: #4CAF50;
+            padding: 15px 0;
+            text-align: center;
+            color: white;
+        }
+
+        .header a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+
+        .footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+        }
+		.content {
+            padding: 20px;
+			background-color:#e8f5e9;
+
+        .login-container {
+            max-width: 400px;
+            margin: 100px auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .login-container h2 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .button-group {
+            text-align: center;
+        }
+
+        button[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .new,
+        .signup-link {
+            text-align: center;
+        }
+
+        .new a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        .signup-link a {
+            text-decoration: none;
+            color: #4CAF50;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>ELECTRONIC HEALTH RECORDS</h1>
+        <div>
+            <a href="welcome5.html">Home</a>
+			<a href="service4.html">Service</a>
+            <a href="calender.html">Set Up Calendar</a>
+            <a href="booking.html">Book Appointment</a>
+            <a href="notification.html">Set Notification</a>
+        </div>
+    </div>
+	<div class="content">
+    <div class="login-container">
+        <h2>LOGIN</h2>
+        <form id="loginForm" action="#" method="post" onsubmit="return validateForm()">
+            <div class="input-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+                <label>Forgot username? <a href="username.html">Click here</a></label>
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+                <label>Forgot password? <a href="password1.html">Click here</a></label>
+            </div>
+            <button type="submit">Sign In</button>
+        </form>
+        <div class="new">
+            <a href="#">I am new here</a>
+        </div>
+        <div class="signup-link">
+            <p>CREATE ACCOUNT <a href="Createaccount.html">Click here</a></p>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 Patient Scheduling System. All rights reserved.</p>
+    </div>
+
+    <script>
+        function validateForm() {
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+            if (username.length !== 10) {
+                alert("Username must be exactly 10 characters long.");
+                return false;
+            }
+            if (password.length !== 6) {
+                alert("Password must be exactly 6 characters long.");
+                return false;
+            }
+            return true;
+        }
+    </script>
+	</div>
+</body>
+</html>

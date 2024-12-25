@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clinical Documentation - EHR System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .navbar {
+            background-color: #4CAF50;
+            color: white;
+            padding: 1em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .navbar img {
+            height: 50px;
+            background-color: #e8f5e9;
+        }
+        .navbar a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            padding: 20px;
+            background-color: #e8f5e9;
+        }
+        .form-section {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            max-width: 600px;
+            margin: 20px auto;
+        }
+        .form-section h2 {
+            margin-top: 0;
+        }
+        .form-section label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        .form-section input, .form-section select, .form-section textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-section button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .form-section button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <img src="logo.png" alt="Logo">
+        <div>
+            <a href="welcome5.html">Home</a>
+            <a href="service4.html">Service</a>
+            <a href="calender.html">Set Up Calendar</a>
+            <a href="booking.html">Book Appointment</a>
+            <a href="notification.html">Set Notification</a>
+            <a href="documentation.html">Clinical Documentation</a>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="form-section">
+            <h2>Document Patient Encounter</h2>
+            <form id="documentationForm" action="/save_documentation" method="post" onsubmit="return validateForm()">
+                <label for="patientName">Patient Name</label>
+                <input type="text" id="patientName" name="patientName" placeholder="Enter patient name" required>
+
+                <label for="dateOfVisit">Date of Visit</label>
+                <input type="date" id="dateOfVisit" name="dateOfVisit" required>
+
+                <label for="progressNotes">Progress Notes</label>
+                <textarea id="progressNotes" name="progressNotes" rows="4" placeholder="Enter progress notes" required></textarea>
+
+                <label for="diagnosis">Diagnosis</label>
+                <textarea id="diagnosis" name="diagnosis" rows="2" placeholder="Enter diagnosis" required></textarea>
+
+                <label for="treatment">Treatment</label>
+                <textarea id="treatment" name="treatment" rows="2" placeholder="Enter treatment" required></textarea>
+
+                <label for="procedures">Procedures</label>
+                <textarea id="procedures" name="procedures" rows="2" placeholder="Enter procedures performed" required></textarea>
+
+                <button type="submit">Save Documentation</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function validateForm() {
+            var patientName = document.getElementById('patientName').value;
+            var dateOfVisit = document.getElementById('dateOfVisit').value;
+            var progressNotes = document.getElementById('progressNotes').value;
+            var diagnosis = document.getElementById('diagnosis').value;
+            var treatment = document.getElementById('treatment').value;
+            var procedures = document.getElementById('procedures').value;
+
+            if (!patientName || !dateOfVisit || !progressNotes || !diagnosis || !treatment || !procedures) {
+                alert("All fields are required.");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+
+</body>
+</html>

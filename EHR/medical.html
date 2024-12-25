@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medication Management - EHR System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .navbar {
+            background-color: #4CAF50;
+            color: white;
+            padding: 1em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .navbar img {
+            height: 50px;
+            background-color: #e8f5e9;
+        }
+        .navbar a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            padding: 20px;
+            background-color: #e8f5e9;
+        }
+        .form-section {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            max-width: 600px;
+            margin: 20px auto;
+        }
+        .form-section h2 {
+            margin-top: 0;
+        }
+        .form-section label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        .form-section input, .form-section select, .form-section textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-section button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .form-section button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <img src="logo.png" alt="Logo">
+        <div>
+            <a href="welcome5.html">Home</a>
+            <a href="service4.html">Service</a>
+            <a href="calender.html">Set Up Calendar</a>
+            <a href="booking.html">Book Appointment</a>
+            <a href="notification.html">Set Notification</a>
+            <a href="documentation.html">Clinical Documentation</a>
+            <a href="order_management.html">Order Management</a>
+            <a href="medication_management.html">Medication Management</a>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="form-section">
+            <h2>Medication Management</h2>
+            <form id="medicationForm" action="/save_medication" method="post" onsubmit="return validateForm()">
+                <label for="patientName">Patient Name</label>
+                <input type="text" id="patientName" name="patientName" placeholder="Enter patient name" required>
+
+                <label for="medication">Medication</label>
+                <input type="text" id="medication" name="medication" placeholder="Enter medication name" required>
+
+                <label for="dosage">Dosage</label>
+                <input type="text" id="dosage" name="dosage" placeholder="Enter dosage" required>
+
+                <label for="frequency">Frequency</label>
+                <input type="text" id="frequency" name="frequency" placeholder="Enter frequency" required>
+
+                <label for="startDate">Start Date</label>
+                <input type="date" id="startDate" name="startDate" required>
+
+                <label for="endDate">End Date</label>
+                <input type="date" id="endDate" name="endDate" required>
+
+                <label for="notes">Notes</label>
+                <textarea id="notes" name="notes" rows="4" placeholder="Enter any notes"></textarea>
+
+                <button type="submit">Prescribe Medication</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function validateForm() {
+            var patientName = document.getElementById('patientName').value;
+            var medication = document.getElementById('medication').value;
+            var dosage = document.getElementById('dosage').value;
+            var frequency = document.getElementById('frequency').value;
+            var startDate = document.getElementById('startDate').value;
+            var endDate = document.getElementById('endDate').value;
+
+            if (!patientName || !medication || !dosage || !frequency || !startDate || !endDate) {
+                alert("All fields except notes are required.");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+
+</body>
+</html>

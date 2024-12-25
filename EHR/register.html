@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Patient Registration</title>
+<style>
+/* CSS styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 80%;
+  margin: 50px auto;
+}
+
+h2 {
+  text-align: center;
+}
+
+form {
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Patient Registration</h2>
+  <form id="patientForm">
+    <div class="form-group">
+      <label for="firstName">First Name:</label>
+      <input type="text" id="firstName" name="firstName" required>
+    </div>
+    <div class="form-group">
+      <label for="lastName">Last Name:</label>
+      <input type="text" id="lastName" name="lastName" required>
+    </div>
+    <div class="form-group">
+      <label for="dob">Date of Birth:</label>
+      <input type="date" id="dob" name="dob" required>
+    </div>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email">
+    </div>
+    <div class="form-group">
+      <label for="phone">Phone:</label>
+      <input type="tel" id="phone" name="phone">
+    </div>
+    <div class="form-group">
+      <label for="insurance">Insurance Details:</label>
+      <input type="text" id="insurance" name="insurance">
+    </div>
+    <div class="form-group">
+      <label for="emergencyContact">Emergency Contact:</label>
+      <input type="text" id="emergencyContact" name="emergencyContact">
+    </div>
+    <button type="submit">Register</button>
+  </form>
+</div>
+
+<script>
+// JavaScript
+document.getElementById("patientForm").addEventListener("submit", function(event) {
+  event.preventDefault(); // Prevent the default form submission
+  
+  // Get form values
+  var firstName = document.getElementById("firstName").value;
+  var lastName = document.getElementById("lastName").value;
+  var dob = document.getElementById("dob").value;
+  var email = document.getElementById("email").value;
+  var phone = document.getElementById("phone").value;
+  var insurance = document.getElementById("insurance").value;
+  var emergencyContact = document.getElementById("emergencyContact").value;
+  
+  // Create patient object
+  var patient = {
+    firstName: firstName,
+    lastName: lastName,
+    dob: dob,
+    email: email,
+    phone: phone,
+    insurance: insurance,
+    emergencyContact: emergencyContact
+  };
+  
+  // Send patient data to server (you need to implement server-side code to handle this)
+  console.log(patient);
+});
+</script>
+
+</body>
+</html>

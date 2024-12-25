@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment Scheduling - Patient Scheduling System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .navbar {
+            background-color: #4CAF50;
+            color: white;
+            padding: 1em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .navbar img {
+            height: 50px;
+            background-color: #e8f5e9;
+        }
+        .navbar a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            padding: 20px;
+            background-color: #e8f5e9;
+        }
+        .form-section {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            max-width: 600px;
+            margin: 20px auto;
+        }
+        .form-section h2 {
+            margin-top: 0;
+        }
+        .form-section label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        .form-section input, .form-section select {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-section button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .form-section button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <img src="logo.png" alt="Logo">
+        <div>
+            <a href="welcome5.html">Home</a>
+            <a href="service4.html">Service</a>
+            <a href="calender.html">Set Up Calendar</a>
+            <a href="booking.html">Book Appointment</a>
+            <a href="notification.html">Set Notification</a>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="form-section">
+            <h2>Schedule an Appointment</h2>
+            <form id="appointmentForm" action="/schedule_appointment" method="post" onsubmit="return validateForm()">
+                <label for="patientName">Patient Name</label>
+                <input type="text" id="patientName" name="patientName" placeholder="Enter patient name" required>
+
+                <label for="providerName">Healthcare Provider</label>
+                <select id="providerName" name="providerName" required>
+                    <option value="">Select a provider</option>
+                    <option value="Dr. Smith">Dr. Smith</option>
+                    <option value="Dr. Johnson">Dr. Johnson</option>
+                    <option value="Dr. Lee">Dr. Lee</option>
+                </select>
+
+                <label for="appointmentDate">Appointment Date</label>
+                <input type="date" id="appointmentDate" name="appointmentDate" required>
+
+                <label for="appointmentTime">Appointment Time</label>
+                <input type="time" id="appointmentTime" name="appointmentTime" required>
+
+                <label for="reminder">Send Reminder</label>
+                <input type="checkbox" id="reminder" name="reminder">
+
+                <button type="submit">Schedule Appointment</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function validateForm() {
+            var patientName = document.getElementById('patientName').value;
+            var providerName = document.getElementById('providerName').value;
+            var appointmentDate = document.getElementById('appointmentDate').value;
+            var appointmentTime = document.getElementById('appointmentTime').value;
+
+            if (!patientName || !providerName || !appointmentDate || !appointmentTime) {
+                alert("All fields except reminder are required.");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+
+</body>
+</html>
